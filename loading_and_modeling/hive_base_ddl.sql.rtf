@@ -1,0 +1,482 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 HelveticaNeue;\f2\fnil\fcharset0 Menlo-Regular;
+}
+{\colortbl;\red255\green255\blue255;\red46\green46\blue49;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+DROP TABLE readmissions;
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+CREATE EXTERNAL TABLE readmissions (
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+ProviderID int,
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+HospitalName varchar(500),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+Address varchar(500),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+City varchar(500),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+State varchar(5),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+ZIPCode varchar(20),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+CountyName varchar(500),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+PhoneNumber varchar(20),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+MeasureName varchar(500),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+MeasureID varchar(500),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+ComparedToNational varchar(500),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+Denominator varchar(500),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+Score varchar(500),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+LowerEst varchar(500),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+HigherEst varchar(500),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+Footnote varchar(500),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+StartDate date,
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+EndDate date)
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+ROW FORMAT DELIMITED
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+FIELDS TERMINATED BY ','
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+STORED AS TEXTFILE
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+Location '/user/w205/hospital_compare/readmissions';
+\f2\fs22 \cf0 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural
+\cf0 \
+LOAD DATA LOCAL INPATH '/data/hospital_compare/readmissions.csv'\
+OVERWRITE INTO TABLE readmissions;\
+\
+\pard\pardeftab720
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+\CocoaLigature1 DROP TABLE effective_care;
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+CREATE EXTERNAL TABLE effective_care (
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+ProviderID varchar(50),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+HospitalName varchar(500),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+Address varchar(500),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+City varchar(500),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+State varchar(5),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+ZIPCode varchar(20),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+CountyName varchar(500),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+PhoneNumber varchar(20),\
+Condition varchar(500),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+MeasureID varchar(500),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+MeasureName varchar(500),\
+Score varchar(500),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+Sample varchar(500),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+Footnote varchar(500),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+MeasureStartDate varchar(50),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+MeasureEndDate varchar(50))
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+ROW FORMAT DELIMITED
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+FIELDS TERMINATED BY ','
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+STORED AS TEXTFILE
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+Location '/user/w205/hospital_compare/effective_care\'92;
+\f2\fs22 \cf0 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural
+\cf0 \
+LOAD DATA LOCAL INPATH '/data/hospital_compare/effective_care.csv'\
+OVERWRITE INTO TABLE effective_care;\
+\
+\pard\pardeftab720
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+\CocoaLigature1 DROP TABLE hospitals;
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+CREATE EXTERNAL TABLE hospitals (
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+ProviderID string,
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+HospitalName varchar(500),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+Address varchar(500),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+City varchar(500),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+State varchar(5),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+ZIPCode varchar(20),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+CountyName varchar(500),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+PhoneNumber varchar(20),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+HospitalType varchar(500),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+HospitalOwnership varchar(500),
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+EmergencyServices varchar(500))
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+ROW FORMAT DELIMITED
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+FIELDS TERMINATED BY ','
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+STORED AS TEXTFILE
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+Location '/user/w205/hospital_compare/hospitals\'92;
+\f2\fs22 \cf0 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural
+\cf0 \
+LOAD DATA LOCAL INPATH '/data/hospital_compare/hospitals.csv'\
+OVERWRITE INTO TABLE hospitals;\
+\
+\pard\pardeftab720
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+\CocoaLigature1 DROP TABLE measures;
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+CREATE EXTERNAL TABLE measures (
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+MeasureName string,
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+MeasureID string,
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+MeasureStartQuarter string,
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+MeasureStartData string,
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+MeasureEndQuarter string,
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+MeasureEndData string)
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+ROW FORMAT DELIMITED
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+FIELDS TERMINATED BY ','
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+STORED AS TEXTFILE
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+Location '/user/w205/hospital_compare/measures\'92;
+\f2\fs22 \cf0 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural
+\cf0 \
+LOAD DATA LOCAL INPATH '/data/hospital_compare/measures.csv'\
+OVERWRITE INTO TABLE measures;\
+\
+\pard\pardeftab720
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+\CocoaLigature1 DROP TABLE hcahps_data;
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+CREATE EXTERNAL TABLE hcahps_data (
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+ProviderID string,
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+HospitalName string,
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+Address string,
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+City string,
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+State string,
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+ZIPCode string,
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+CountyName string,\
+PhoneNumber string,
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural
+
+\f2\fs22 \cf0 \kerning1\expnd0\expndtw0 \CocoaLigature0 HCAHPSMeasureID string, \
+HCAHPSQuestion string, \
+HCAHPSAnswerDescription string, \
+PatientSurveyStarRating string, \
+PatientSurveyStarRatingFootnote string, \
+HCAHPSAnswerPercent string, \
+HCAHPSAnswerPercentFootnote string, \
+NumberofCompletedSurveys string, \
+NumberofCompletedSurveysFootnote string, \
+SurveyResponseRatePercent string, \
+SurveyResponseRatePercentFootnote string, \
+MeasureStartDate string, \
+MeasureEndDate string)
+\f1\fs28 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\pard\pardeftab720
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+ROW FORMAT DELIMITED
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+FIELDS TERMINATED BY ','
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+STORED AS TEXTFILE
+\f1\fs28 \cf0 \expnd0\expndtw0\kerning0
+\
+
+\f0\fs30 \cf2 \expnd0\expndtw0\kerning0
+Location '/user/w205/hospital_compare/hcahps_data\'92;
+\f2\fs22 \cf0 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural
+\cf0 \
+LOAD DATA LOCAL INPATH '/data/hospital_compare/hcahps_data.csv'\
+OVERWRITE INTO TABLE hcahps_data;\
+}
